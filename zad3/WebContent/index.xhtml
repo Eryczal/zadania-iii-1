@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/page-template.xhtml">
+
+	<ui:define name="pageContent">
+
+		<h:messages id="msg" />
+
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5" styleClass="bottom-space">
+				
+				<h:outputLabel for="idmoc" value="#{txtCalc.valueWatt}:" />
+
+				<h:inputText id="idmoc" value="#{calcBB.moc}" required="true"
+					requiredMessage="Watt: #{txtCalcErr.calcParamRequired}"
+					converterMessage="Watt: #{txtCalcErr.calcParamIncorrect}" />
+
+				<h:outputLabel for="idilosc" value="#{txtCalc.valueAmount}" />
+				
+				<h:inputText id="idilosc" value="#{calcBB.ilosc}" required="true"
+					requiredMessage="Ilość: #{txtCalcErr.calcParamRequired}"
+					converterMessage="Ilość: #{txtCalcErr.calcParamIncorrect}" />
+
+				<h:outputLabel for="idczas" value="#{txtCalc.valueTime}" />
+				
+				<h:inputText id="idczas" value="#{calcBB.czas}" required="true"
+					requiredMessage="Czas: #{txtCalcErr.calcParamRequired}"
+					converterMessage="Czas: #{txtCalcErr.calcParamIncorrect}" />
+
+				<h:commandButton value="#{txtCalc.add}" action="#{calcBB.calc()}">
+					<f:ajax execute="@form" render="msg" />
+				</h:commandButton>
+				
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>
