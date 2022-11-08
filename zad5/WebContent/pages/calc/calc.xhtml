@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/main-template.xhtml">
+
+	<ui:define name="title">
+		JSF 05 - filtry, ochrona zasobów
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5" styleClass="bottom-space">
+				<h:outputLabel for="idmoc" value="Moc:" />
+				<h:inputText id="idmoc" value="#{calcBB.moc}" required="true"
+					requiredMessage="podaj moc" converterMessage="niepoprawny format - moc" />
+				<h:outputLabel for="idilosc" value="Ilość:" />
+				<h:inputText id="idilosc" value="#{calcBB.ilosc}" required="true"
+					requiredMessage="podaj ilość" converterMessage="niepoprawny format - ilość" />
+					<h:outputLabel for="idczas" value="Czas:" />
+					<h:inputText id="idczas" value="#{calcBB.czas}" required="true"
+						requiredMessage="podaj czas" converterMessage="niepoprawny format - czas" />
+				<h:commandButton value="Oblicz" action="#{calcBB.calc()}"
+					update="msg" />
+			</h:panelGrid>
+		</h:form>
+
+		<h:messages id="msg" />
+
+	</ui:define>
+
+</ui:composition>
+</html>
