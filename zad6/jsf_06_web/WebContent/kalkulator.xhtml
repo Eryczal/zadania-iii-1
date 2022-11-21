@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="utf-8"/>
+	<title>JSF 06 - EJB, bazy danych (mapowanie
+		obiektowo-relacyjne)</title>
+</h:head>
+
+<h:body style="background-color: #eee; margin: 0.5em;">
+
+	<p:panel toggleable="true" header="Kalkulator">
+
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5" styleClass="bottom-space">
+				<h:outputLabel for="idmoc" value="Moc:" />
+				<h:inputText id="idmoc" value="#{calcBB.moc}" />
+
+				<h:outputLabel for="idilosc" value="Ilość:" />
+				<h:inputText id="idilosc" value="#{calcBB.ilosc}" />
+
+				<h:outputLabel for="idczas" value="Czas:" />
+				<h:inputText id="idczas" value="#{calcBB.czas}" />
+
+				<h:commandButton value="Oblicz" action="#{calcBB.calc()}"/>
+				
+				<h:commandButton value="Powrót" action="personList" />
+			</h:panelGrid>
+		</h:form>
+
+	</p:panel>
+
+</h:body>
+
+</html>
